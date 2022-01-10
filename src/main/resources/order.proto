@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package wallet;
+option java_package = "cn.hsiangsun.sunway.grpc";
+option java_outer_classname = "OrderProto";
+
+service RemoteOrder {
+  rpc PrintOrder(OrderRequest) returns (OrderResponse){}
+}
+
+message OrderRequest {
+  repeated Order orders = 1;
+}
+
+message Order {
+  string quantity = 1;
+  string id = 2;
+  string mod = 3;
+}
+
+message AddressResponse{
+  string address = 1;
+}
+
+message OrderResponse{
+  bool result = 1;
+}
